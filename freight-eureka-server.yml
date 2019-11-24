@@ -1,6 +1,6 @@
 server:
   port: 9091
-
+  contextPath: /context-path
 eureka:
   instance:
     hostname: localhost
