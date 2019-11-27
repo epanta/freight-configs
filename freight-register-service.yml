@@ -1,0 +1,40 @@
+server:
+  port: 9092
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    registerWithEureka: true
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://localhost:9091/eureka/
+  server:
+    wait-time-in-ms-when-sync-empty: 3000
+
+spring:
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:testdb
+    username: sa
+    password:
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    generate-ddl: false
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+      settings:
+        trace: true
+        web-allow-others: true
+      
+## Configuring info endpoint
+info:
+  app:
+    name: freight register
+    description: Backend do servidor de cadastro de frete
+    version: 1.0.0
