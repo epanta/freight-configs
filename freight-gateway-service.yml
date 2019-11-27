@@ -1,0 +1,46 @@
+server:
+  port: 9094
+
+eureka:
+  instance:
+    hostname: gateway-server
+  client:
+    registerWithEureka: false
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:9091/eureka/
+  server:
+    wait-time-in-ms-when-sync-empty: 3000
+
+feign:
+  client:
+    url:
+      TestUrl: http://localhost:9092
+
+zuul:
+  ignoredServices: '*'
+  host:
+    max-total-connections: 1000
+    max-per-route-connections: 1000
+  routes:
+    agenda-cadastro-service:
+      path: /api/v1/contatos/**
+      sensitive-headers: null
+      serviceId: agenda-cadastro-service
+      strip-prefix: false
+
+ribbon:
+  eureka:
+    enabled: false
+
+agenda-cadastro-service:
+  ribbon:
+    listOfServers: localhost:9092
+
+security:
+  basic:
+    enable: false   
+
+management:
+  security:
+    enabled: false 
