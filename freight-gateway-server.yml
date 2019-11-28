@@ -8,7 +8,7 @@ eureka:
     registerWithEureka: false
     fetchRegistry: true
     serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: http://localhost:9091/eureka/
   server:
     wait-time-in-ms-when-sync-empty: 3000
 
@@ -23,17 +23,17 @@ zuul:
     max-total-connections: 1000
     max-per-route-connections: 1000
   routes:
-    freight-register-service:
+    freight-register-server:
       path: /api/v1/freight/**
       sensitive-headers: null
-      serviceId: freight-register-service
+      serviceId: freight-register-server
       strip-prefix: false
 
 ribbon:
   eureka:
     enabled: false
 
-freight-register-service:
+freight-register-server:
   ribbon:
     listOfServers: localhost:9092
 
