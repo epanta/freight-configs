@@ -24,7 +24,7 @@ zuul:
     max-per-route-connections: 1000
   routes:
     agenda-cadastro-service:
-      path: /api/v1/contatos/**
+      path: /api/v1/freight/**
       sensitive-headers: null
       serviceId: freight-register-service
       strip-prefix: false
