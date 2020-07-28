@@ -23,17 +23,17 @@ zuul:
     max-total-connections: 1000
     max-per-route-connections: 1000
   routes:
-    freight-register-server:
-      path: /api/v1/freight/**
+    product-register-server:
+      path: /api/v1/product/**
       sensitive-headers: null
-      serviceId: freight-register-server
+      serviceId: product-register-server
       strip-prefix: false
 
 ribbon:
   eureka:
     enabled: false
 
-freight-register-server:
+product-register-server:
   ribbon:
     listOfServers: localhost:9092
 
