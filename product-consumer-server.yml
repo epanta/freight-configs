@@ -29,6 +29,6 @@ spring:
 ## Configuring info endpoint
 info:
   app:
-    name: freight register
-    description: Backend do servidor de cadastro de frete
+    name: product register
+    description: Backend do servidor de cadastro de produto
     version: 1.0.0
